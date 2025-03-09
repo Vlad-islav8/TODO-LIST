@@ -1,0 +1,57 @@
+@import '../../../colors.scss';
+
+.Search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+
+    input {
+        padding: 12px 20px;
+        border-radius: 30px;
+        width: 250px;
+        font-size: 1rem;
+        color: $colorText;
+        transition: all 0.3s ease;
+        background-color: rgba(255, 255, 255, 0.9);
+        border: 2px solid transparent;
+
+        &:focus {
+            width: 400px;
+            outline: none;
+            border-color: $colorBlue;
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        &::placeholder {
+            color: rgba($colorText, 0.5);
+        }
+    }
+
+    button {
+        padding: 12px 24px;
+        background-color: $colorBlue;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+            background-color: darken($colorBlue, 10%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        &:active {
+            background-color: darken($colorBlue, 20%);
+            transform: translateY(0);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    }
+}

@@ -1,0 +1,29 @@
+.AddTask {
+    padding: 1rem;
+    margin-right: 5rem;
+    button {
+        cursor: pointer;
+        background: none;
+        border: none;
+        transition: transform 0.2s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
+
+        img {
+            width: 64px;
+            height: 64px;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+            transition: filter 0.2s ease;
+
+            &:hover {
+                filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.3));
+            }
+        }
+    }
+}

@@ -1,0 +1,340 @@
+@import '../../../../colors.scss';
+
+.TaskDetail {
+    min-height: 100vh;
+    width: 100%;
+    background-color: $colorblueWhite;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+
+    header {
+        background: linear-gradient(135deg, $colorBlue, darken($colorBlue, 10%));
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        padding: 1.5rem 2.5rem;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        z-index: 2;
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 1200px;
+
+            .returnImageBlock {
+                background-color: $colorWhiteBlue;
+                padding: 1rem;
+                border-radius: 50%;
+                transition: all 0.3s ease;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                cursor: pointer;
+
+                &:hover {
+                    background-color: darken($colorWhiteBlue, 5%);
+                    transform: scale(1.1) rotate(-5deg);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                }
+
+                .returnImage {
+                    width: 28px;
+                    height: 28px;
+                    display: block;
+                    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.1));
+                }
+            }
+
+            .date {
+                color: white;
+                font-size: 1.2rem;
+                font-weight: 600;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                padding: 0.8rem 1.2rem;
+                background-color: rgba(255, 255, 255, 0.1);
+                border-radius: 8px;
+                backdrop-filter: blur(5px);
+                transition: all 0.3s ease;
+
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.2);
+                }
+
+                input[type="date"] {
+                    background: transparent;
+                    border: none;
+                    color: white;
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    outline: none;
+                    cursor: pointer;
+
+                    &::-webkit-calendar-picker-indicator {
+                        filter: invert(1);
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+
+    .mainTask {
+        flex: 1;
+        padding: 2rem;
+        background-color: $colorWhiteBlue;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+
+        .taskinfo {
+            background-color: white;
+            width: 100%;
+            flex: 1;
+            border-radius: 15px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+
+            &:hover {
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+            }
+
+            h1 {
+                color: #333;
+                font-size: 2rem;
+                padding-bottom: 1.5rem;
+                border-bottom: 2px solid #eee;
+                margin-bottom: 2rem;
+                flex-shrink: 0;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    color: $colorBlue;
+                }
+            }
+
+            p {
+                color: #666;
+                line-height: 1.6;
+                font-size: 1.1rem;
+                padding: 0 0.5rem;
+                overflow-y: auto;
+                flex: 1;
+
+                /* Стилизация скроллбара */
+                &::-webkit-scrollbar {
+                    width: 8px;
+                }
+
+                &::-webkit-scrollbar-track {
+                    background: #f1f1f1;
+                    border-radius: 4px;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background: #888;
+                    border-radius: 4px;
+
+                    &:hover {
+                        background: #555;
+                    }
+                }
+            }
+
+            .editInput {
+                width: 100%;
+                font-size: 2rem;
+                font-weight: bold;
+                padding: 0.5rem;
+                border: 2px solid $colorBlue;
+                border-radius: 8px;
+                margin-bottom: 1.5rem;
+                transition: all 0.3s ease;
+
+                &:focus {
+                    border-color: darken($colorBlue, 10%);
+                    box-shadow: 0 0 8px rgba($colorBlue, 0.3);
+                    outline: none;
+                }
+            }
+
+            .editTextarea {
+                width: 100%;
+                font-size: 1.1rem;
+                padding: 0.5rem;
+                border: 2px solid $colorBlue;
+                border-radius: 8px;
+                resize: vertical;
+                min-height: 150px;
+                transition: all 0.3s ease;
+
+                &:focus {
+                    border-color: darken($colorBlue, 10%);
+                    box-shadow: 0 0 8px rgba($colorBlue, 0.3);
+                    outline: none;
+                }
+            }
+        }
+    }
+
+    .buttonsBlock {
+        padding: 2rem;
+        background-color: $colorBlue;
+        box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        position: relative;
+        z-index: 2;
+
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 1rem;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+            img {
+                width: 50px;
+                height: 50px;
+                display: block;
+                transition: all 0.3s ease;
+            }
+
+            &.completeButton {
+                background-color: $colorWhiteBlue;
+
+                &:hover {
+                    background-color: #20bf55;
+                    transform: scale(1.1);
+
+                    img {
+                        filter: brightness(2);
+                    }
+                }
+            }
+
+            &.editButton {
+                background-color: $colorWhiteBlue;
+
+                &:hover {
+                    background-color: #ffc107;
+                    transform: scale(1.1);
+
+                    img {
+                        filter: brightness(2);
+                    }
+                }
+            }
+
+            &.deleteButton {
+                background-color: $colorWhiteBlue;
+
+                &:hover {
+                    background-color: #f44336;
+                    transform: scale(1.1);
+
+                    img {
+                        filter: brightness(2);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .TaskDetail {
+        header {
+            padding: 0.8rem 1rem;
+
+            nav {
+                .returnImageBlock {
+                    padding: 0.6rem;
+
+                    .returnImage {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+
+                .date {
+                    font-size: 0.9rem;
+
+                    input[type="date"] {
+                        font-size: 0.9rem;
+                    }
+                }
+            }
+        }
+
+        .mainTask {
+            padding: 0.8rem;
+
+            .taskinfo {
+                padding: 1rem;
+
+                h1 {
+                    font-size: 1.5rem;
+                    padding-bottom: 1rem;
+                    margin-bottom: 1.5rem;
+                }
+
+                p {
+                    font-size: 1rem;
+                    padding: 0 0.3rem;
+                }
+
+                .editInput {
+                    font-size: 1.5rem;
+                    margin-bottom: 1rem;
+                }
+
+                .editTextarea {
+                    min-height: 100px;
+                }
+            }
+        }
+
+        .buttonsBlock {
+            padding: 1.5rem;
+            gap: 1rem;
+
+            button {
+                padding: 0.8rem;
+
+                img {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+        }
+    }
+}
+
+.complete {
+    background-color: rgba($colorSuccess, 0.1);
+    border-left: 6px solid $colorSuccess;
+
+    h1, p {
+        color: $colorTextLight;
+        text-decoration: line-through;
+    }
+
+    .buttonsBlock {
+        button.completeButton {
+            background-color: $colorSuccess;
+            color: white;
+        }
+    }
+}

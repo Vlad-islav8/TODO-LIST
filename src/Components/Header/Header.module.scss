@@ -1,0 +1,98 @@
+@import '../../colors.scss';
+
+.Header {
+    background: linear-gradient(135deg, rgba($colorBlue, 0.9), rgba(darken($colorBlue, 10%), 0.9));
+    padding: 40px 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+
+    .headerContent {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        animation: fadeInDown 1s ease;
+
+        .todoIcon {
+            width: 50px;
+            height: 50px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+            animation: bounce 2s infinite;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+    }
+
+    .Search {
+        margin-top: 2rem;
+        position: relative;
+        z-index: 2;
+        animation: fadeInUp 1s ease;
+    }
+
+    // Анимация для заголовка
+    @keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    // Анимация для поиска
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    // Анимация для иконки
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-10px);
+        }
+        60% {
+            transform: translateY(-5px);
+        }
+    }
+
+    
+}
+
+@media (max-width: 768px) {
+    .Header {
+      padding: 30px 15px; // Меньше отступы
+  
+      .headerContent {
+        flex-direction: column; // Контент в колонку
+  
+        h1 {
+          font-size: 2rem; // Меньше размер шрифта
+        }
+      }
+  
+      .todoIcon {
+        width: 40px; // Меньше размер иконки
+        height: 40px;
+      }
+    }
+  }

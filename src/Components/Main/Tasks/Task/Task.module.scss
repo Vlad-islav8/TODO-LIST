@@ -1,0 +1,192 @@
+@import '../../../../colors.scss';
+
+.Task {
+  background-color: $colorBackground;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  .taskContent {
+      text-decoration: none;
+      color: inherit;
+      flex-grow: 1;
+      cursor: pointer; // Курсор pointer для кликабельной области
+
+      &:hover {
+          opacity: 0.9; // Лёгкое затемнение при наведении
+      }
+
+      h1 {
+          margin: 0 0 12px 0;
+          font-size: 1.75rem;
+          font-weight: 700;
+          color: $colorText;
+      }
+
+      .dateBlock {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-top: 12px;
+
+          p {
+              margin: 0;
+              font-size: 1rem;
+              color: $colorTextLight;
+              cursor: default; // Курсор по умолчанию для даты
+          }
+
+          .calendarIcon {
+              width: 20px;
+              height: 20px;
+              filter: brightness(0.8);
+              cursor: default; // Курсор по умолчанию для иконки
+          }
+
+          .dateText {
+              font-weight: 700;
+              color: $colorPrimary;
+              background-color: rgba($colorPrimary, 0.1);
+              padding: 6px 12px;
+              border-radius: 8px;
+              cursor: default; // Курсор по умолчанию для даты
+          }
+      }
+  }
+
+  .buttonsBlock {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      padding-top: 16px;
+
+      button, a {
+          padding: 10px 16px;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer; // Курсор pointer для кнопок
+          transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 1rem;
+          font-weight: 600;
+          background-color: $colorBackground;
+          color: $colorText;
+          text-decoration: none;
+
+          &:hover {
+              transform: translateY(-2px);
+              box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+          }
+
+          img {
+              width: 24px;
+              height: 24px;
+              transition: transform 0.3s ease;
+
+              &:hover {
+                  transform: scale(1.1);
+              }
+          }
+
+          &.completeButton {
+              background-color: $colorSuccess;
+              color: white;
+
+              &:hover {
+                  background-color: darken($colorSuccess, 10%);
+              }
+          }
+
+          &.editButton {
+              background-color: $colorWarning;
+              color: white;
+
+              &:hover {
+                  background-color: darken($colorWarning, 10%);
+              }
+          }
+
+          &.deleteButton {
+              background-color: $colorDanger;
+              color: white;
+
+              &:hover {
+                  background-color: darken($colorDanger, 10%);
+              }
+          }
+      }
+  }
+
+  &.complete {
+      background-color: rgba($colorSuccess, 0.1);
+      border-left: 6px solid $colorSuccess;
+
+      h1, p {
+          color: $colorTextLight;
+          text-decoration: line-through;
+      }
+
+      .buttonsBlock {
+          button.completeButton {
+              background-color: $colorSuccess;
+              color: white;
+          }
+      }
+  }
+}
+
+@media (max-width: 768px) {
+  .Task {
+      padding: 20px;
+      margin-bottom: 16px;
+
+      h1 {
+          font-size: 1.5rem;
+      }
+
+      .dateBlock {
+          p {
+              font-size: 0.9rem;
+          }
+
+          .calendarIcon {
+              width: 18px;
+              height: 18px;
+          }
+
+          .dateText {
+              padding: 5px 10px;
+          }
+      }
+
+      .buttonsBlock {
+          gap: 10px;
+
+          button, a {
+              padding: 8px 12px;
+              font-size: 0.9rem;
+
+              img {
+                  width: 20px;
+                  height: 20px;
+              }
+          }
+      }
+  }
+}

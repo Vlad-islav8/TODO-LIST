@@ -1,0 +1,73 @@
+.FilterTaskBlock {
+    position: relative;
+    .FilterTask {
+        padding: 1rem;
+        button {
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: transform 0.2s ease;
+    
+            &:hover {
+                transform: scale(1.1);
+            }
+    
+            &:active {
+                transform: scale(0.95);
+            }
+    
+            img {
+                width: 64px;
+                height: 64px;
+                filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+                transition: filter 0.2s ease;
+    
+                &:hover {
+                    filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.3));
+                }
+            }
+        }
+        
+    }
+    .Filters {
+        position: absolute;
+        display: none;
+        flex-direction: column;
+        padding: 1rem;
+        color: #333;
+        background-color: #fff;
+        top: -120px;
+        left: -180px;
+        border-radius: 15px 15px 0 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+
+        button {
+            margin: 0.5rem;
+            padding: 0.5rem 1rem;
+            text-transform: uppercase;
+            border: none;
+            background: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+
+            &:hover {
+                color: #666;
+                transform: translateX(5px);
+            }
+
+            &:active {
+                transform: translateX(2px);
+            }
+        }
+
+        &:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+    }
+    .active {
+        display: flex;
+    }
+}
