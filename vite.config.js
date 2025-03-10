@@ -1,12 +1,12 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-const repoName = 'TODO-LIST'; // Замени на название своего репозитория
+const repoName = 'TODO-LIST'; 
 
 export default defineConfig({
   plugins: [react()],
-  base: `/${repoName}/`,  // Добавляем / в начале и / в конце
+  base: `/${repoName}`,  
   build: {
-    outDir: 'dist', // Укажи, если у тебя другой каталог вывода
+    outDir: 'dist', 
   },
 })
