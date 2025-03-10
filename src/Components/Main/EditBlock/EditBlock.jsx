@@ -6,7 +6,6 @@ function EditBlock(props) {
         <div className={styles.EditBlock}>
             <FilterTask urgentTask={props.urgentTask} NoturgentTask={props.NoturgentTask}/>
             <AddTask isModalActive={props.isModalActive} handleModalActive={props.handleModalActive}/>
-            
         </div>
     )
 }

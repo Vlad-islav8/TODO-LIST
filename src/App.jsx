@@ -4,7 +4,7 @@ import MainDesc from './Components/MainDesc/MainDesc';
 import TaskDetail from './Components/Main/Tasks/TaskDetail/TaskDetail';
 
 function App() {
-    // 
+    const basename = '/TODO-LIST'; 
     // состояние таска
     const [tasks, setTasks] = useState([]);
     // Все таски
@@ -78,7 +78,7 @@ function App() {
         setTasks(sortedTasks);
     }
     return (
-        <Router>
+        <Router basename={basename}>
             <Routes>
                 <Route path="/"
                     element={

@@ -1,6 +1,8 @@
+@import '../../../colors.scss';
 .AddTask {
     padding: 1rem;
-    margin-right: 5rem;
+    margin-right: 1rem; /* Уменьшаем отступ */
+
     button {
         cursor: pointer;
         background: none;
@@ -16,8 +18,8 @@
         }
 
         img {
-            width: 64px;
-            height: 64px;
+            width: 48px; /* Уменьшаем размер иконки */
+            height: 48px;
             filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
             transition: filter 0.2s ease;
 
