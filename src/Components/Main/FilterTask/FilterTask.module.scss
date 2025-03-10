@@ -1,9 +1,8 @@
 @import '../../../colors.scss';
+
 .FilterTaskBlock {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative; /* Важно для правильного позиционирования Filters */
+    display: inline-block; /* Чтобы занимал место в потоке */
 
     .FilterTask {
         padding: 1rem;
@@ -12,14 +11,16 @@
             cursor: pointer;
             background: none;
             border: none;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, opacity 0.3s ease;
 
             &:hover {
                 transform: scale(1.15);
+                opacity: 0.9;
             }
 
             &:active {
                 transform: scale(0.9);
+                opacity: 1;
             }
 
             img {
@@ -37,52 +38,48 @@
 
     .Filters {
         position: absolute;
-        /* Общие стили для всех экранов */
+        bottom: 100%; /* Позиционируем над кнопкой */
+        left: 50%;
+        transform: translateX(-50%);
         display: none;
         flex-direction: column;
         padding: 1.5rem;
         color: $colorText;
         background-color: $colorblueWhite;
         border-radius: 20px;
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Увеличиваем тень */
         transition: all 0.3s ease;
         min-width: 200px;
-        max-width: 90%; /* Ограничиваем ширину на маленьких экранах */
+        max-width: 90%; /* Ограничение для маленьких экранов */
         box-sizing: border-box;
         z-index: 10;
         max-height: 300px;
         overflow-y: auto;
-        bottom: 100%; /* Позиционируем над кнопкой */
-        left: 50%;
-        transform: translateX(-50%);
         margin-bottom: 10px; /* Отступ от кнопки */
-        
+        backdrop-filter: blur(10px); /* Добавляем размытие фона */
+        border: 1px solid rgba(255, 255, 255, 0.1); /* Легкая граница */
+
         button {
-            margin: 0.7rem 0;
-            padding: 0.6rem 1.2rem;
+            margin: 0.5rem 0;
+            padding: 0.75rem 1.5rem;
             border: none;
-            background-color: $colorWhiteBlue;
-            color: $colorText;
+            color: black;
             font-size: 1rem;
-            font-weight: 500;
+            font-weight: 400;
             cursor: pointer;
-            transition: all 0.3s ease;
             border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
             &:hover {
-                background-color: lighten($colorWhiteBlue, 5%);
-                color: $colorPrimary;
-                transform: scale(1.05);
+                transform: translateY(-2px);
+                box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
             }
 
             &:active {
-                transform: scale(0.95);
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                transform: translateY(0);
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             }
-        }
-
-        &:hover {
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
     }
 
@@ -103,10 +100,9 @@
         }
     }
 
-    /* Для больших экранов (не меняем позиционирование) */
     @media (min-width: 768px) {
         .Filters {
-            max-width: 300px; /* Задаем ширину панели */
+            max-width: 300px; /* Увеличиваем ширину на больших экранах */
         }
     }
 }

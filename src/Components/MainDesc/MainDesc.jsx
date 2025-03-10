@@ -21,6 +21,7 @@ function MainDesc(props) {
                 handleModalActive={props.handleModalActive}
                 urgentTask={props.urgentTask} 
                 NoturgentTask={props.NoturgentTask}
+
             />
             <AddTaskModal 
                 isModalActive={props.isModalActive} 
